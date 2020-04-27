@@ -1,0 +1,15 @@
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:16:05:54 +0800] "GET /ims_maven HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:16:05:54 +0800] "GET /ims_maven/ HTTP/1.1" 200 52 http-bio-8080-exec-2 660
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:16:05:55 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:16:06:04 +0800] "GET /ims_maven/login HTTP/1.1" 500 8185 http-bio-8080-exec-4 29
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:16:07:34 +0800] "GET /ims_maven/success%E3%80%82jsp HTTP/1.1" 500 8185 http-bio-8080-exec-5 14
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:16:07:39 +0800] "GET /ims_maven/success.jsp HTTP/1.1" 200 116 http-bio-8080-exec-6 80
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:16:08:10 +0800] "GET /ims_maven/hrm/login HTTP/1.1" 500 8185 http-bio-8080-exec-7 11
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:18:23:49 +0800] "GET /ims_maven HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:18:23:49 +0800] "GET /ims_maven/ HTTP/1.1" 200 52 http-bio-8080-exec-2 55
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:18:23:49 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-3 0
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:18:23:57 +0800] "GET /ims_maven/hrm/login HTTP/1.1" 200 116 http-bio-8080-exec-4 1980
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:21:49:06 +0800] "GET /ims_maven HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:21:49:06 +0800] "GET /ims_maven/ HTTP/1.1" 200 52 http-bio-8080-exec-2 56
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:21:49:11 +0800] "GET /ims_maven/login HTTP/1.1" 404 981 http-bio-8080-exec-3 551
+0:0:0:0:0:0:0:1 - - [01/Apr/2020:21:49:21 +0800] "GET /ims_maven/hrm/login HTTP/1.1" 200 116 http-bio-8080-exec-4 336

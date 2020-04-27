@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <title> 综合练习 </title>
+  <meta name="Author" content="chunlong.luo">
+  <meta name="Keywords" content="fkjava">
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <script type="text/javascript" src="resources/jquery/jquery-1.11.0.min.js"></script>
+
+  <script type="text/javascript">
+
+      /*
+	    jQuery综合案例要求：
+		1、全选选中的时候，所有的子checkbox都需要选中，并且所有的数据行加上背景色
+		2、当鼠标放在目标数据行上的时候，数据行需要加上背景色，鼠标离开的时候去掉背景色，如果当前数据行是选中的情况下，就算鼠标离开 ，背景色要保留；
+		3、鼠标放在数据行上的时候变成手指状
+
+		4、当我们点击子checkbox的时候，如果所有的子checkbox都选中了，那么全选也要选中
+	    5、点击数据行的时候，当前行中的checkbox的状态需要进行取反
+	  
+	  */
+
+	  window.onload = function(){
+	        
+			 //为全选绑定事件
+			 $("#checkAll").click(function(){
+			     //控制所有的子checkbox的选中状态
+				 $("[name='box']").prop("checked",this.checked);
+				 //控制数据行加上或者去掉背景色
+                 $("[name='datatr']").css("backgroundColor",this.checked ? "red" : "");
+			 })
+
+             //为所有的数据行绑定事件  mouseover事件以及mouseout事件以及click事件
+			 $("[name='datatr']").mouseover(function(){
+			      
+				   //数据行加上背景色以及鼠标手指状
+				   //$(this).css("backgroundColor","red").css("cursor","pointer");
+				   $(this).css({"backgroundColor":"red","cursor":"pointer"});
+			 
+			 }).mouseout(function(){
+                   
+				   //获取数据行的id
+				   var trId = this.id;
+
+				   //根据数据行的id获取对应的checkbox的id
+				   var boxId = trId.replace("tr","box");
+                   //获取checkbox对应的jQuery对象
+				   var $box = $("#"+boxId);
+				   //获取checkbox的选中状态   选中的时候 flag会为 true
+				   var flag = $box.prop("checked");
+				   //没有选中则去掉背景色
+                   if(!flag){
+				      //数据行去掉背景色
+			          $(this).css("backgroundColor","");
+				   }
+                  
+			 }).click(function(){
+                  //获取数据行的id
+				  var trId = this.id;
+
+				  //根据数据行的id获取对应的checkbox的id
+				  var boxId = trId.replace("tr","box");
+                  //让checkbox的选中状态取反
+                  $("#"+boxId).prop("checked",!$("#"+boxId).prop("checked"));
+
+
+			       //获取总的checkbox的个数
+				   var len = $("[id^='box_']").length;
+				   //获取选中的checkbox的个数
+				   var checkedLen = $("[id^='box_']:checked").length;
+
+				   //操作全选的选中状态
+                   $("#checkAll").prop("checked",len == checkedLen);
+			 })
+
+
+			 //给所有的子checkbox绑定事件
+              $("[id^='box_']").click(function(event){
+			      
+				   //取消事件的默认行为
+                    event.stopPropagation();
+			      
+				   //获取总的checkbox的个数
+				   var len = $("[id^='box_']").length;
+				   //获取选中的checkbox的个数
+				   var checkedLen = $("[id^='box_']:checked").length;
+
+				   //操作全选的选中状态
+                   $("#checkAll").prop("checked",len == checkedLen);
+			  
+			  })
+	  
+	  }
+     
+  </script>
+   
+ </head>
+
+ <body>
+
+      <table border="1" width="100%">
+          <caption>用户列表</caption>
+          <thead>
+		      <tr><th><input type="checkbox" id="checkAll"/></th><th>用户编号</th><th>姓名</th><th>性别</th><th>年龄</th><th>操作</th></tr>
+		  </thead>
+
+		  <tbody>
+             <tr name="datatr" id="tr_01"><td><input type="checkbox" name="box" id="box_01"/></td><td>0001</td><td>志玲姐姐</td><td>女</td><td>39</td><td><a href="updateUser.html">修改</a> <a>查看</a></td></tr>
+			
+			 <tr name="datatr"  id="tr_02"><td><input type="checkbox" name="box" id="box_02" /></td><td>0002</td><td>贾玲姐姐</td><td>女</td><td>18</td><td>修改 查看</td></tr>
+			
+			 <tr name="datatr"  id="tr_03"><td><input type="checkbox" name="box" id="box_03" /></td><td>0003</td><td>嘉玲姐姐</td><td>女</td><td>28</td><td>修改 查看</td></tr>
+		  </tbody>
+
+		  <tfoot>
+             <tr><td colspan="6"> <a>首页</a> 1 2 3 4 5 6 ...  100 尾页</td></tr>
+		  </tfoot>
+	  </table>
+ </body>
+</html>
